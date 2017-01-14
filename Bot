@@ -1,0 +1,18 @@
+// app.js
+var discordbot = require('simple-discord-bot'),
+    auth = require('./auth.json');
+ 
+var commands = [{
+    name: 'greet',
+    description: 'description for greet',
+    help: 'help for greet',
+    handle: greet
+}];
+ 
+function greet (message) {
+    bot.sendMessage(message, 'Hey, '+ message.author.username +'! Wazzup!?');
+}
+ 
+var bot = new discordbot({ commands: commands });
+ 
+bot.connect(auth);
